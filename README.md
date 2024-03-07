@@ -1,27 +1,24 @@
 # k-mer-variant-phasing-docker
 
-[k-mer-variant-phasing](https://github.com/mrvollger/k-mer-variant-phasing) is not an anaconda pacakge - it was constructed as a snakemake package.
+[k-mer-variant-phasing](https://github.com/mrvollger/k-mer-variant-phasing) provides a pipeline designed to phase variants and PacBio Hifi data using a combination of k-mers and variants. k-mer-variant-phasing-docker provides Docker files and GitHub Action workflows for building and publishing a Docker image so that k-mer-variant-phasing can be used in the [sync-seq](https://github.com/adeslatt/sync-seq) workflow.
+
+sync-seq provides a Nextflow workflow encapsulating the computational components to take output from the 15:1 molar libraries of gDNA:cDNA sequenced on the PacBio Revio following the protocols published by Vollger, Mitchell R., Jonas Korlach, Kiara C. Eldred, Elliott Swanson, Jason G. Underwood, Yong-Han H. Cheng, Jane Ranchalis, et al. 2023. “Synchronized Long-Read Genome, Methylome, Epigenome, and Transcriptome for Resolving a Mendelian Condition.” Preprint. Genetics. https://doi.org/10.1101/2023.09.26.559521.
 
 ### Build
 
 To build your image from the command line:
-* Can do this on [Google shell](https://shell.cloud.google.com) - docker is installed and available
+* You can do this on [Google shell](https://shell.cloud.google.com) since docker is installed and available.
 
 ```bash
-docker build -t [insert appropriate program here] .
+docker build -t k-mer-variant-phasing:latest .
 ```
 
-To test this tool from the command line 
+### Test
 
-Set up an environment variable capturing your current command line:
-```bash
-PWD=$(pwd)
-```
-
-Then mount and use your current directory and call the tool now encapsulated within the environment.
+To test this tool from the command line:
 
 ```bash
-docker run -it -v $PWD:$PWD -w $PWD [insert appropriate command for help message] -h
+docker run -it k-mer-variant-phasing:latest snakemake -h
 ```
 
 Disclaimer
