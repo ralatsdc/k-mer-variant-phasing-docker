@@ -8,11 +8,20 @@ RUN apt-get update && \
     apt-get install -y procps && \
     apt-get clean -y
 
+# Work in root
+WORKDIR /root
+
 # Install the conda environment
 ARG ENV_NAME=k-mer-variant-phasing
 COPY environment.yaml /
 RUN conda env create --quiet --name ${ENV_NAME} --file /environment.yaml -y && \
     conda clean -a
+
+# Clone the repository and checkout the specified release
+ARG VERSION=0.0.1-alpha
+RUN git clone https://github.com/mrvollger/k-mer-variant-phasing.git && \
+    cd k-mer-variant-phasing && \
+    git checkout ${VERSION}
 
 # Add conda installation and root dirs to PATH (instead of doing
 # 'conda activate' or specifiying path to tool)
