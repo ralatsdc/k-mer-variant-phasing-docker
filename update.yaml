@@ -1,0 +1,11 @@
+name: k-mer-variant-phasing
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - mamba
+  - snakemake>=8.4.0
+  - pip
+  - pip:
+      - snakemake-executor-plugin-slurm
