@@ -1,3 +1,5 @@
+[![Build a Docker image](https://github.com/adeslatt/k-mer-variant-phasing-docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/adeslatt/k-mer-variant-phasing-docker/actions/workflows/docker-image.yml)[![Build and push a Docker image](https://github.com/adeslatt/k-mer-variant-phasing-docker/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/adeslatt/k-mer-variant-phasing-docker/actions/workflows/docker-publish.yml)
+
 # k-mer-variant-phasing-docker
 
 [k-mer-variant-phasing](https://github.com/mrvollger/k-mer-variant-phasing) provides a pipeline designed to phase variants and PacBio Hifi data using a combination of k-mers and variants. k-mer-variant-phasing-docker provides Docker files and GitHub Action workflows for building and publishing a Docker image so that k-mer-variant-phasing can be used in the [sync-seq](https://github.com/adeslatt/sync-seq) workflow.
